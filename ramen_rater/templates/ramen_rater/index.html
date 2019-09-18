@@ -1,0 +1,35 @@
+{% extends 'ramen_rater/base.html' %}
+{% block content %}
+    <div class="ramen">
+        <h1>Here's your ramen list</h1>
+        <div class="ramen_list">
+            <table style="width: 150%">
+                <tr>
+                    <th>Brand</th>
+                    <th>Variety</th>
+                    <th>Style</th>
+                    <th>Country</th>
+                    <th>Stars</th>
+                    <th>Date review</th>
+                </tr>
+                {% for ramen in ramen_list %}
+                <tr>
+                    <td>{{ ramen.brand }}</td>
+                    <td>{{ ramen.variety }}</td>
+                    <td>{{ ramen.style }}</td>
+                    <td>{{ ramen.country }}</td>
+                    <td>{{ ramen.stars }}</td>
+                    <td>{{ ramen.daterate }}</td>
+                    <td><a href="{% url 'detail' ramen.pk  %}" class="btn btn-info" role="button">View rating</a></td>
+                    <td><a href="{% url 'edit' ramen.pk %}"  class="btn btn-warning" role="button">Edit rating</a></td>
+                     <td><a href="{% url 'delete' ramen.pk %}"  class="btn btn-danger" role="button">Delete rating</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+        <span><a href="{% url 'add' %}" class="btn btn-primary" role="button"  data-toggle="modal" aria-pressed="true">Add a rating</a>
+        </span>
+    </div>
+{% endblock content %}
+

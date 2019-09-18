@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ramen_ratings.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,8 +76,10 @@ WSGI_APPLICATION = 'ramen_ratings.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('database'),
+        'USER': os.environ.get('user'),
+        'PASSWORD': os.environ.get('password')
     }
 }
 
@@ -106,16 +108,21 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Rome'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+DATETIME_INPUT_FORMATS = ['%d-%m-%Y', '%d-%m-%Y %H:%M:%S',
+                          '%d/%m/%Y', '%d/%m/%Y %H:%M:%S',
+                          '%m-%d-%Y', '%m-%d-%Y %H:%M:%S',
+                          '%Y-%m-%d', '%Y-%m-%d %H:%M:%S']

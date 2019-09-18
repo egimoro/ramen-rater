@@ -1,0 +1,15 @@
+{% extends 'ramen_rater/base.html' %}
+{% block content %}
+<div>
+    <h4>Ramen details</h4>
+    <p>Brand: {{ ramen.brand }}</p>
+    <p>Variety: {{ ramen.variety }}</p>
+    <p>Style: {{ ramen.style }}</p>
+    <p>country: {{ ramen.country }}</p>
+    <p>stars: {{ ramen.stars }}</p>
+    <p>Date review: {{ ramen.daterate }}</p>
+</div>
+<div>
+    <small><a href="{% url 'index' %}">Back</a></small>
+</div>
+{% endblock content %}
