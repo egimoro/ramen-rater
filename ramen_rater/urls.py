@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import (IndexView, HomePageView, RamenDetails,
-                    AddRamen, EditRamen, DeleteRamen)
+                    AddRamen, EditRamen, DeleteRamen, SearchRamen)
+
 
 urlpatterns = [
                path('', HomePageView.as_view(), name='home'),
@@ -11,6 +12,11 @@ urlpatterns = [
                path('ramen_rater/edit/<int:pk>', EditRamen.as_view(),
                     name='edit'),
                path('ramen_rater/delete/<int:pk>', DeleteRamen.as_view(),
-                    name='delete'), ]
+                    name='delete'), 
+               path('ramen_rater/search', SearchRamen.as_view(), name='search'),
+               
+          
+               ]
 
-                    
+
+

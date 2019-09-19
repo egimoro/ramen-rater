@@ -1,0 +1,30 @@
+{% extends 'ramen_rater/base.html' %}
+{% block content %}
+<div class="result">
+        <table style="width: 150%">
+            <tr>
+                <th>Brand</th>
+                <th>Variety</th>
+                <th>Style</th>
+                <th>Country</th>
+                <th>Stars</th>
+                <th>Date review</th>
+            </tr>
+            {% for ramen in result %}
+            <tr>
+                <td>{{ ramen.brand }}</td>
+                <td>{{ ramen.variety }}</td>
+                <td>{{ ramen.style }}</td>
+                <td>{{ ramen.country }}</td>
+                <td>{{ ramen.stars }}</td>
+                <td>{{ ramen.daterate }}</td>
+                {% empty %}
+                    <li>No ratings found. Please try again! </li>
+            {% endfor %}
+        </table>
+        <small>
+            <span>
+                <a href="{% url 'home' %}">Back</a>
+            </span>
+        </small>
+{% endblock content %}

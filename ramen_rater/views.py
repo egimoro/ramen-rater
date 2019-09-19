@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.db.models import Q
 from django.views.generic.base import TemplateView
 from django.views.generic import (ListView, DetailView, CreateView, 
                                   UpdateView, DeleteView)
@@ -15,6 +15,7 @@ class IndexView(ListView):
     queryset = Ramen.objects.order_by('-daterate')  
     context_object_name = 'ramen_list'
     template_name = 'ramen_rater/index.html'
+    paginate_by = 10
 
 
 class RamenDetails(DetailView):
@@ -41,3 +42,32 @@ class DeleteRamen(DeleteView):
     success_url = reverse_lazy('index')
 
 
+class SearchRamen(ListView):
+    template_name = 'ramen_rater/search.html'
+    context_object_name = 'result'
+    
+
+    def get_queryset(self):
+        query = self.request.GET['q']
+        if query:
+            return Ramen.objects.filter(Q(brand__icontains=query) |
+                                        Q(variety__icontains=query) |
+                                        Q(country__icontains=query) |
+                                        Q(style__icontains=query)) 
+
+        else:
+            return Ramen.objects.all()
+
+            
+
+
+
+
+
+
+
+
+
+
+
+   

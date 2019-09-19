@@ -1,10 +1,10 @@
 {% extends 'ramen_rater/base.html' %}
 {% block content %}
-    <div class="fieldWrapper">
+    <fieldset class="form-group">
     <form action="" method="post">
             {% csrf_token %}
             {{ form.as_ul }}
             <input type="submit" value="Save">
         </form>
-    </div>
+    </fieldset>
 {% endblock content %}

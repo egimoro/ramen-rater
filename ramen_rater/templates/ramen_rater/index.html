@@ -1,5 +1,13 @@
 {% extends 'ramen_rater/base.html' %}
 {% block content %}
+<fieldset class="form-group">
+    <form action="{% url 'search' %}" method="get">
+        <input type="text" name="q">
+        <input type="submit"  class="btn btn-success" value="Search">
+    </form>
+    
+    </fieldset>
+    
     <div class="ramen">
         <h1>Here's your ramen list</h1>
         <div class="ramen_list">
@@ -26,9 +34,15 @@
                 </tr>
                 {% endfor %}
             </table>
+                <div class="pagination">
+                    <span class="step-">
+
+                    </span>
+
+                </div>
 
         </div>
-        <span><a href="{% url 'add' %}" class="btn btn-primary" role="button"  data-toggle="modal" aria-pressed="true">Add a rating</a>
+        <span><a href="{% url 'add' %}" class="btn btn-primary" role="button" aria-pressed="true">Add a rating</a>
         </span>
     </div>
 {% endblock content %}
