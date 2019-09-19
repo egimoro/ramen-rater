@@ -15,7 +15,7 @@ class IndexView(ListView):
     queryset = Ramen.objects.order_by('-daterate')  
     context_object_name = 'ramen_list'
     template_name = 'ramen_rater/index.html'
-    paginate_by = 10
+    paginate_by = 6
 
 
 class RamenDetails(DetailView):
@@ -45,10 +45,10 @@ class DeleteRamen(DeleteView):
 class SearchRamen(ListView):
     template_name = 'ramen_rater/search.html'
     context_object_name = 'result'
+    paginate_by = 6
     
-
     def get_queryset(self):
-        query = self.request.GET['q']
+        query = self.request.GET.get('q', False)
         if query:
             return Ramen.objects.filter(Q(brand__icontains=query) |
                                         Q(variety__icontains=query) |
@@ -58,7 +58,7 @@ class SearchRamen(ListView):
         else:
             return Ramen.objects.all()
 
-            
+
 
 
 
