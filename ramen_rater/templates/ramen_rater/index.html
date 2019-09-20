@@ -1,6 +1,6 @@
 {% extends 'ramen_rater/base.html' %}
 {% block content %}
-<fieldset class="form-group">
+<fieldset>
     <form action="{% url 'search' %}" method="get">
         <input type="text" name="q">
         <input type="submit"  class="btn btn-success" value="Search">
@@ -8,10 +8,10 @@
     
     </fieldset>
     
-    <div class="ramen">
+    <div>
         <h1>Here's your ramen list</h1>
-        <div class="ramen_list">
-            <table style="width: 150%">
+        <div>
+            <table class="ramen" style="width: 150%">
                 <tr>
                     <th>Brand</th>
                     <th>Variety</th>
