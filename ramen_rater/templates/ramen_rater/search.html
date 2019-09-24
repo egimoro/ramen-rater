@@ -17,7 +17,7 @@
                 <td>{{ ramen.style }}</td>
                 <td>{{ ramen.country }}</td>
                 <td>{{ ramen.stars }}</td>
-                <td>{{ ramen.daterate }}</td>
+                <td>{{ ramen.daterate|date:"M d, Y" }}</td>
                 {% empty %}
                     <li>No ratings found. Please try again! </li>
             {% endfor %}

@@ -7,7 +7,7 @@
     <p>Style: {{ ramen.style }}</p>
     <p>country: {{ ramen.country }}</p>
     <p>stars: {{ ramen.stars }}</p>
-    <p>Date review: {{ ramen.daterate }}</p>
+    <p>Date review: {{ ramen.daterate|date:"M d, Y" }}</p>
 </div>
 <div>
     <small><a href="{% url 'index' %}">Back</a></small>

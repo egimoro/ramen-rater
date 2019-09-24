@@ -27,7 +27,7 @@
                     <td>{{ ramen.style }}</td>
                     <td>{{ ramen.country }}</td>
                     <td>{{ ramen.stars }}</td>
-                    <td>{{ ramen.daterate }}</td>
+                    <td>{{ ramen.daterate|date:"M d, Y" }}</td>
                     <td><a href="{% url 'detail' ramen.pk  %}" class="btn btn-info" role="button">View rating</a></td>
                     <td><a href="{% url 'edit' ramen.pk %}"  class="btn btn-warning" role="button">Edit rating</a></td>
                      <td><a href="{% url 'delete' ramen.pk %}"  class="btn btn-danger" role="button">Delete rating</a></td>
