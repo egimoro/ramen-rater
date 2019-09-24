@@ -21,8 +21,7 @@ class Ramen(models.Model):
     variety = models.CharField(max_length=100)
     style = models.CharField(max_length=7, choices=STYLE_CHOICES)
     country = models.CharField(max_length=70)
-    daterate = models.DateTimeField(default=timezone.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                    blank=True)
+    daterate = models.DateField(auto_now=False)
     stars = models.FloatField(validators=[MinValueValidator(0), 
                               MaxValueValidator(10)])
 
