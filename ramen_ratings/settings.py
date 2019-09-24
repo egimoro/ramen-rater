@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'vQnXgzUf4fjbC3UNJDZfn0hFmeGdySS7')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ramen-rater.herokuapp.com']
 
 
 # Application definition
@@ -130,3 +131,5 @@ DATETIME_INPUT_FORMATS = ['%d-%m-%Y', '%d-%m-%Y %H:%M:%S',
                           '%d/%m/%Y', '%d/%m/%Y %H:%M:%S',
                           '%m-%d-%Y', '%m-%d-%Y %H:%M:%S',
                           '%Y-%m-%d', '%Y-%m-%d %H:%M:%S']
+
+django_heroku.settings(locals())
