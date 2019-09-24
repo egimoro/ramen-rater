@@ -132,4 +132,6 @@ DATETIME_INPUT_FORMATS = ['%d-%m-%Y', '%d-%m-%Y %H:%M:%S',
                           '%m-%d-%Y', '%m-%d-%Y %H:%M:%S',
                           '%Y-%m-%d', '%Y-%m-%d %H:%M:%S']
 
+DATE_INPUT_FORMATS = ['%d-%m-%Y', '%d/%m/%Y', '%m-%d-%Y', '%Y-%m-%d']
+
 django_heroku.settings(locals())
